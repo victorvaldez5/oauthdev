@@ -6,6 +6,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var swig = require('swig');
+var session = require('express-session');
 var passport = require('passport');
 var mongoose = require('mongoose');
 
@@ -41,7 +42,7 @@ app.use(session({
   saveUninitialized: true
 }));
 app.use(passport.initialize());
-app.use(passport.sessions());
+app.use(passport.session());
 
 // *** main routes *** //
 app.use('/', routes);
